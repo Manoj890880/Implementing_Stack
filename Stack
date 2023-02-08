@@ -1,0 +1,25 @@
+function find(str){
+    let stack=[]
+    let ans=[]
+    let ans1=0;
+    let flag=true;
+    let obj={")":"(","]":"[","}":"{"}
+    for(let i=0;i<str.length;i++){
+        if(str[i]=="("||str[i]=="["||str[i]=="{"){
+            stack.push(str[i])
+        }
+        if(obj[str[i]]){
+            if(obj[str[i]]==stack[stack.length-1]){
+                stack.pop()
+            }else{
+                flag=false;
+            }
+            
+        }
+    }
+    if(stack.length==0&&flag){
+        console.log("balanced")
+    }else{
+        console.log("unbalanced")
+    }
+}
